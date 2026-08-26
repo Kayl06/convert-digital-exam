@@ -1557,5 +1557,15 @@
         "info": "t:settings_schema.cart.settings.cart_drawer.collection.info"
       }
     ]
+  },
+  {
+    "name": "Lookbook",
+    "settings": [
+      {
+        "type": "text",
+        "id": "lookbook_storefront_token",
+        "label": "Lookbook Storefront Token"
+      }
+    ]
   }
 ]
