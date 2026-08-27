@@ -1,0 +1,24 @@
+{% comment %} 
+   Outputs a comma-separated list of product handles from a lookbook products field.
+  The field may be a list of handles or product references; only handles are returned.
+
+  Accepts:
+  - products: array list of product handles
+
+  usage:
+  {% render 'lookbook-product-handles', products: lookbook.products.value %}
+{% endcomment %}
+
+{%- liquid
+  assign handles = products | map: 'handle' | compact
+
+  if handles.size > 0
+    echo handles | join: ','
+  elsif products == blank
+    echo ''
+  elsif products.first == blank
+    echo products | split: ',' | compact | join: ','
+  else
+    echo products | compact | join: ','
+  endif
+-%}

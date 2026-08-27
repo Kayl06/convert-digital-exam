@@ -391,6 +391,18 @@
           "label": "Vertical space"
         }
       }
+    },
+    "lookbook": {
+      "name": "Lookbook",
+      "settings": {
+        "paragraph": {
+          "content": "Lookbooks are Lookbook metaobjects (type lookbook) with title, description, and a list of products. Create them in Settings > Custom data > Metaobjects."
+        },
+        "lookbook_storefront_token": {
+          "label": "Storefront API token",
+          "info": "Public access token used to fetch lookbook product data at runtime."
+        }
+      }
     }
   },
   "sections": {
@@ -3299,6 +3311,41 @@
       },
       "presets": {
         "name": "Collapsible content"
+      }
+    },
+    "lookbook": {
+      "name": "Lookbook",
+      "settings": {
+        "lookbook": {
+          "label": "Lookbook",
+          "info": "Create lookbooks in Settings > Custom data > Metaobjects. Each entry needs a title, description, and a list of products."
+        },
+        "background": {
+          "label": "Background"
+        },
+        "heading_color": {
+          "label": "Heading"
+        },
+        "text_color": {
+          "label": "Text"
+        },
+        "colors": {
+          "content": "Colors"
+        }
+      },
+      "presets": {
+        "name": "Lookbook"
+      }
+    },
+    "lookbook-product": {
+      "name": "Lookbook",
+      "settings": {
+        "paragraph": {
+          "content": "Shows up to two lookbooks that include this product. Lookbooks are managed in Settings > Custom data > Metaobjects."
+        }
+      },
+      "presets": {
+        "name": "Lookbook"
       }
     }
   }

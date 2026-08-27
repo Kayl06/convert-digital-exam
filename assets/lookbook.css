@@ -1,0 +1,15 @@
+.lookbook + .lookbook {
+  margin-top: 4rem;
+}
+
+.lookbook .title {
+  margin-bottom: 1rem;
+}
+
+.lookbook .rte {
+  margin-bottom: 2rem;
+}
+
+.lookbook__media {
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,72 @@
+{% comment %} 
+Renders Lookbok - JSON payload 
+
+ Accepts:
+ - lookbooks: array list
+ - section_id: generated section id
+
+ usage: 
+  {% render 'lookbook-island', lookbooks: lookbooks, section_id: section.id %}
+{% endcomment %}
+
+{%- assign token = settings.lookbook_storefront_token | strip -%}
+{%- assign api_version = '2026-07' | json %}
+
+{%- if lookbooks.size > 0 -%}
+  {%- if token == blank -%}
+    <p>{{ 'sections.lookbook.missing_token' | t }}</p>
+  {%- else -%}
+    <div id="Lookbook-{{ section_id }}" data-lookbook-root>
+      <script type="application/json">
+        {
+          "sectionId": {{ section_id | json }},
+          "storeDomain": {{ shop.permanent_domain | json }},
+          "storefrontToken": {{ token | json }},
+          "apiVersion": {{ api_version }},
+          "country": {{ localization.country.iso_code | json }},
+          "language": {{ localization.language.iso_code | json }},
+          "strings": {
+            "loading": {{ 'sections.lookbook.loading' | t | json }},
+            "error": {{ 'sections.lookbook.error' | t | json }},
+            "empty": {{ 'sections.lookbook.empty' | t | json }},
+            "empty_products": {{ 'sections.lookbook.empty_products' | t | json }}
+          },
+          "lookbooks": [
+            {%- assign emitted = 0 -%}
+
+            {%- for handle in lookbooks -%}
+            
+              {%- if handle != blank -%}
+            
+                {%- assign lookbook = metaobjects.lookbook[handle] -%}
+            
+                {%- if lookbook != blank -%}
+                  {%- if emitted > 0 -%},{%- endif -%}
+            
+                    {%- capture product_handles -%}
+                      {% render 'lookbook-product-handles', products: lookbook.products.value %}
+                    {%- endcapture -%}
+              
+                  {%- assign product_handles = product_handles | strip -%}
+            
+                  {
+                    "handle": {{ lookbook.system.handle | json }},
+                    "title": {{ lookbook.title.value | json }},
+                    "description": {{ lookbook.description.value | json }},
+                    "productHandles": {% if product_handles != blank %}{{ product_handles | split: ',' | json }}{% else %}[]{% endif %}
+                  }
+            
+                  {%- assign emitted = emitted | plus: 1 -%}
+            
+                {%- endif -%}
+            
+              {%- endif -%}
+            
+            {%- endfor -%}
+          ]
+        }
+      </script>
+    </div>
+    <script src="{{ 'lookbook.js' | asset_url }}" defer></script>
+  {%- endif -%}
+{%- endif -%}

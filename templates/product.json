@@ -82,6 +82,17 @@
         "padding_bottom": 0
       }
     },
+    "lookbook_product_wXHq6b": {
+      "type": "lookbook-product",
+      "name": "Lookbook Product",
+      "settings": {
+        "background": "#121212",
+        "heading_color": "#E1D5D5",
+        "text_color": "#FFFFFF",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -102,6 +113,7 @@
   },
   "order": [
     "main",
+    "lookbook_product_wXHq6b",
     "related-products"
   ]
 }
