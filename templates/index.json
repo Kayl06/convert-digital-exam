@@ -58,6 +58,12 @@
         "show_text_below": true
       }
     },
+    "lookbook": {
+      "type": "lookbook",
+      "settings": {
+        "lookbook": "lookbook-1"
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -166,6 +172,7 @@
   },
   "order": [
     "6a3bb789-ce10-45f5-ae67-e2063ef8c76b",
+    "lookbook",
     "featured_collection",
     "f1552b18-6017-4231-810d-74e61da22c37",
     "38cdf60f-e431-43b5-aac3-7e6215447d67"

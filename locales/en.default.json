@@ -334,6 +334,13 @@
     },
     "page": {
       "title": "Page title"
+    },
+    "lookbook": {
+      "loading": "Loading…",
+      "error": "Could not load products.",
+      "empty": "No lookbook selected.",
+      "empty_products": "No products.",
+      "missing_token": "Missing storefront token."
     }
   },
   "localization": {
