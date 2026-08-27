@@ -135,7 +135,7 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "hydrogen",
-    "lookbook_storefront_token": "",
+    "lookbook_storefront_token": "583d26a700fceefee2d28840344df793",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
