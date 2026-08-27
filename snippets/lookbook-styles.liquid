@@ -1,0 +1,57 @@
+{% comment %} 
+  Outputs lookbook background, text, heading, and padding styles from section settings.
+
+  Accepts:
+  - section_id: generated section id
+  - background: background color
+  - heading_color: heading color
+  - text_color: text color
+  - padding_top: padding top
+  - padding_bottom: padding bottom
+
+  usage:
+  {% render 'lookbook-styles',
+    section_id: section.id,
+    background: section.settings.background,
+    heading_color: section.settings.heading_color,
+    text_color: section.settings.text_color,
+    padding_top: section.settings.padding_top,
+    padding_bottom: section.settings.padding_bottom
+  %}
+
+{% endcomment %}
+
+{%- style -%}
+  #shopify-section-{{ section_id }} .lookbook-section {
+    padding-top: {{ padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ padding_bottom | times: 0.75 | round: 0 }}px;
+    {%- if background != blank -%}
+      background-color: {{ background }};
+    {%- endif -%}
+    {%- if text_color != blank -%}
+      color: {{ text_color }};
+    {%- endif -%}
+  }
+
+  {%- if heading_color != blank -%}
+    #shopify-section-{{ section_id }} .lookbook-section .title,
+    #shopify-section-{{ section_id }} .lookbook-section .card__heading {
+      color: {{ heading_color }};
+    }
+  {%- endif -%}
+
+  {%- if text_color != blank -%}
+    #shopify-section-{{ section_id }} .lookbook-section .description,
+    #shopify-section-{{ section_id }} .lookbook-section .price,
+    #shopify-section-{{ section_id }} .lookbook-section .price-item {
+      color: {{ text_color }};
+    }
+  {%- endif -%}
+
+  @media screen and (min-width: 750px) {
+    #shopify-section-{{ section_id }} .lookbook-section {
+      padding-top: {{ padding_top }}px;
+      padding-bottom: {{ padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
