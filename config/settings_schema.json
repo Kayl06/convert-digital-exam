@@ -1559,12 +1559,17 @@
     ]
   },
   {
-    "name": "Lookbook",
+    "name": "t:settings_schema.lookbook.name",
     "settings": [
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.lookbook.settings.paragraph.content"
+      },
       {
         "type": "text",
         "id": "lookbook_storefront_token",
-        "label": "Lookbook Storefront Token"
+        "label": "t:settings_schema.lookbook.settings.lookbook_storefront_token.label",
+        "info": "t:settings_schema.lookbook.settings.lookbook_storefront_token.info"
       }
     ]
   }

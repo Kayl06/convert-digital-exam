@@ -4,6 +4,9 @@ import { resolve } from 'node:path';
 
 export default defineConfig({
   plugins: [react()],
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('production'),
+  },
   build: {
     outDir: 'assets',
     emptyOutDir: false,
